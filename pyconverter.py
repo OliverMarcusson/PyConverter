@@ -27,10 +27,10 @@ def main():
     
     pngs = Converter.list_files(directory, '.png')[0]
     filenames = Converter.list_files(directory, '.png')[1]
-    print(pngs)
     for i in range(len(pngs)):    
         Converter.convert(dest_directory, pngs[i], filenames[i])
         print(f"{filenames[i]}.ico Generated!")
+    exit = input('----------\nDone! Press \'Enter\' to exit.')
 
 if __name__ == '__main__':
     main()
