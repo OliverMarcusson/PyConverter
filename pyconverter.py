@@ -7,11 +7,11 @@ class Converter:
         list = []
         filenames = []
         for filename in os.listdir(dir): # Lists everything in the targeted directory.
-            filenames.append(filename)
             file = os.path.join(dir, filename)
             # checking if it is a file
             if os.path.isfile(file) and file.endswith(extension):
                 list.append(file)
+                filenames.append(filename)
         
         return list, filenames
                 
@@ -27,6 +27,8 @@ def main():
     
     pngs = Converter.list_files(directory, '.png')[0]
     filenames = Converter.list_files(directory, '.png')[1]
+    print(pngs)
+    print(filenames)
     for i in range(len(pngs)):    
         Converter.convert(dest_directory, pngs[i], filenames[i])
         print(f"{filenames[i]}.ico Generated!")
